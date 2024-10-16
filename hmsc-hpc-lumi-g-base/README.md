@@ -1,6 +1,6 @@
 # Hmsc-HPC base environment for LUMI-G
 
-These recipe build a base environment with ROCm, Python, TensorFlow, and Hmsc-HPC dependencies.
+This recipe builds a base environment with ROCm, Python, TensorFlow, and Hmsc-HPC dependencies.
 
 ## Version history
 
