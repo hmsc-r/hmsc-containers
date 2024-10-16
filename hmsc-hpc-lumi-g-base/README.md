@@ -4,7 +4,7 @@ This recipe builds a base environment with ROCm, Python, TensorFlow, and Hmsc-HP
 
 ## Image version history
 
-See [this page](../../../pkgs/container/hmsc-hpc-lumi-g) for available versions.
+See [this page](../../../pkgs/container/hmsc-hpc-lumi-g-base) for available versions.
 
 ### 0.1.0
 
