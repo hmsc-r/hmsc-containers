@@ -2,6 +2,11 @@
 
 This repository contains container recipes for using Hmsc in supercomputers.
 
+The Hmsc-HPC LUMI-G containers are based on [AMD ROCm images](https://rocm.docs.amd.com/projects/install-on-linux/en/latest/how-to/docker.html) with [TensorFlow](https://hub.docker.com/r/rocm/tensorflow) and the container images contain software with various licenses.
+
+The [license](LICENSE) of this repository concerns only the build scripts and recipes, not the container images.
+
+
 ## Usage on LUMI-G for a stable release of Hmsc-HPC
 
 > [!CAUTION]
