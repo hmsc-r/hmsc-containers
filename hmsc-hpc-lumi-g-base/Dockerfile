@@ -8,6 +8,7 @@ ARG TENSORFLOW_PROBABILITY_VERSION
 # Install Hmsc-HPC dependencies
 RUN python3 -m pip install \
         tensorflow_probability==$TENSORFLOW_PROBABILITY_VERSION \
+        scipy \
         pyreadr \
         ujson
 
