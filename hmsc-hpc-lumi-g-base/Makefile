@@ -13,7 +13,7 @@ TAR_FILE=$(IMAGE_NAME)_$(IMAGE_VERSION).tar
 build: Dockerfile
 	docker buildx build --platform linux/amd64 \
 		--label "org.opencontainers.image.source=https://github.com/hmsc-r/hmsc-containers" \
-		--label "org.opencontainers.image.description=Hmsc-HPC environment for LUMI-G with ROCm $(ROCM_VERSION), Python $(PYTHON_VERSION), TensorFlow $(TENSORFLOW_VERSION)" \
+		--label "org.opencontainers.image.description=Hmsc-HPC base environment for LUMI-G" \
 		--build-arg BASE_IMAGE=docker.io/rocm/tensorflow:rocm$(ROCM_VERSION)-py$(PYTHON_VERSION)-tf$(TENSORFLOW_VERSION)-runtime \
 		--build-arg TENSORFLOW_PROBABILITY_VERSION=$(TENSORFLOW_PROBABILITY_VERSION) \
 		-t $(IMAGE_ROOT)/$(IMAGE):$(IMAGE_VERSION) \
