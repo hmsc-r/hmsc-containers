@@ -53,6 +53,10 @@ RUN python3 -m pip install \
 
 COPY --from=magma-build /opt/magma/ /opt/magma/
 
+ENV CPATH=/opt/magma/include \
+    LIBRARY_PATH=/opt/magma/lib \
+    LD_LIBRARY_PATH=/opt/magma/lib
+
 ENV TF_FORCE_GPU_ALLOW_GROWTH=true
 
 ENTRYPOINT ["python3"]
