@@ -3,9 +3,10 @@ ROCM_VERSION=6.2
 PYTHON_VERSION=3.9
 TENSORFLOW_VERSION=2.16
 TENSORFLOW_PROBABILITY_VERSION=0.24.0  # use version matching with TF version, see https://github.com/tensorflow/probability/releases
+MAGMA_VERSION=2.8.0
 
 IMAGE=hmsc-hpc-lumi-g-base
-IMAGE_VERSION=0.1.0
+IMAGE_VERSION=0.2.0
 
 SIF_FILE=$(IMAGE_NAME)_$(IMAGE_VERSION).sif
 TAR_FILE=$(IMAGE_NAME)_$(IMAGE_VERSION).tar
@@ -16,6 +17,7 @@ build: Dockerfile
 		--label "org.opencontainers.image.description=Hmsc-HPC base environment for LUMI-G" \
 		--build-arg BASE_IMAGE=docker.io/rocm/tensorflow:rocm$(ROCM_VERSION)-py$(PYTHON_VERSION)-tf$(TENSORFLOW_VERSION)-runtime \
 		--build-arg TENSORFLOW_PROBABILITY_VERSION=$(TENSORFLOW_PROBABILITY_VERSION) \
+		--build-arg MAGMA_VERSION=$(MAGMA_VERSION) \
 		-t $(IMAGE_ROOT)/$(IMAGE):$(IMAGE_VERSION) \
 		.
 
