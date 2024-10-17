@@ -37,6 +37,16 @@ RUN mkdir -p /opt/magma/lib /opt/magma/include && \
     cd /opt/magma && \
     rm -rf /opt/magma-build
 
+# Build custom operator
+RUN mkdir -p /opt/tfop && \
+    git clone --depth 1 --branch custom_operator https://github.com/hmsc-r/hmsc-hpc.git /opt/tfop-build && \
+    cd /opt/tfop-build && \
+    rm -rf build hmsc/magma_cholesky/*.so && \
+    make all MAGMA_ROOT=/opt/magma && \
+    cp hmsc/magma_cholesky/*.so /opt/tfop/ && \
+    cd / && \
+    rm -rf /opt/tfop-build
+
 #########################################
 # Final container image
 #########################################
@@ -56,6 +66,10 @@ COPY --from=magma-build /opt/magma/ /opt/magma/
 ENV CPATH=/opt/magma/include \
     LIBRARY_PATH=/opt/magma/lib \
     LD_LIBRARY_PATH=/opt/magma/lib
+
+COPY --from=magma-build /opt/tfop/ /opt/tfop/
+
+ENV HMSC_TFOP_LIB=/opt/tfop/magma_cholesky.so
 
 ENV TF_FORCE_GPU_ALLOW_GROWTH=true
 
