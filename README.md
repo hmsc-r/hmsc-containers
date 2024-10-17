@@ -15,7 +15,7 @@ The [license](LICENSE) of this repository concerns only the build scripts and re
 <details>
 
 Login to LUMI and run the following first-time setup
-(replace `IMAGE` with an available image version listed in [this page](../../pkgs/container/hmsc-hpc-lumi-g)):
+(replace `VERSION` with an available image version listed in [this page](../../pkgs/container/hmsc-hpc-lumi-g)):
 
     # Go to a work directory
     cd /scratch/project_...
