@@ -38,12 +38,13 @@ RUN mkdir -p /opt/magma/lib /opt/magma/include && \
     rm -rf /opt/magma-build
 
 # Build custom operator
-RUN mkdir -p /opt/tfop && \
-    git clone --depth 1 --branch custom_operator https://github.com/hmsc-r/hmsc-hpc.git /opt/tfop-build && \
+RUN git clone https://github.com/hmsc-r/hmsc-hpc.git /opt/tfop-build && \
     cd /opt/tfop-build && \
-    rm -rf build hmsc/magma_cholesky/*.so && \
+    git checkout 63bdb3c0e87562b30592b8a9551fba7c48d579bf && \
+    cd custom_ops && \
     make all MAGMA_ROOT=/opt/magma && \
-    cp hmsc/magma_cholesky/*.so /opt/tfop/ && \
+    mkdir -p /opt/tfop && \
+    cp *.so /opt/tfop/ && \
     cd / && \
     rm -rf /opt/tfop-build
 
