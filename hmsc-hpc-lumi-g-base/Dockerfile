@@ -70,9 +70,9 @@ ENV CPATH=/opt/magma/include \
 
 COPY --from=magma-build /opt/tfop/ /opt/tfop/
 
-ENV HMSC_TFOP_LIB=/opt/tfop/magma_cholesky.so
-
-ENV TF_FORCE_GPU_ALLOW_GROWTH=true
+ENV HMSC_TFOP_LIB=/opt/tfop/magma_cholesky.so \
+    HMSC_CHOLESKY_MAGMA_SWITCHSIZE=1000 \
+    TF_FORCE_GPU_ALLOW_GROWTH=true
 
 ENTRYPOINT ["python3"]
 CMD ["--help"]
