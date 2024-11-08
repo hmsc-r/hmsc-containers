@@ -72,7 +72,8 @@ COPY --from=magma-build /opt/tfop/ /opt/tfop/
 
 ENV HMSC_TFOP_LIB=/opt/tfop/magma_cholesky.so \
     HMSC_CHOLESKY_MAGMA_SWITCHSIZE=1000 \
-    TF_FORCE_GPU_ALLOW_GROWTH=true
+    TF_FORCE_GPU_ALLOW_GROWTH=true \
+    TF_CPP_MIN_LOG_LEVEL=3
 
 ENTRYPOINT ["python3"]
 CMD ["--help"]
