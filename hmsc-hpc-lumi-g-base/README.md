@@ -1,6 +1,6 @@
 # Hmsc-HPC base environment for LUMI-G
 
-This recipe builds a base environment with ROCm, Python, TensorFlow, and Hmsc-HPC dependencies.
+This recipe builds a base environment with ROCm, Python, TensorFlow, [MAGMA](https://icl.utk.edu/magma/) and Hmsc-HPC dependencies.
 
 ## Image version history
 
@@ -13,7 +13,7 @@ See [this page](../../../pkgs/container/hmsc-hpc-lumi-g-base) for available vers
 - TensorFlow 2.16
 - MAGMA 2.8.0
 - pyreadr 0.5.2
-- Custom MAGMA Cholesky operator for Hmsc-HPC
+- Custom TensorFlow operator for Cholesky decomposition using MAGMA
 
 ### 0.2.0
 
